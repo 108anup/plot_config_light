@@ -26,7 +26,7 @@ def get_fig_size_paper(xscale=1.0, yscale=1.0, full=False):
     if full:
         width = LATEX_TEXT_WIDTH_IN
     height = (width * GOLDEN_RATIO)
-    return (width * yscale, height * xscale)
+    return (width * xscale, height * yscale)
 
 
 # Default microsoft power point text box sizes
@@ -42,7 +42,7 @@ def get_fig_size_ppt(xscale=1.0, yscale=1.0, full=False):
     if full:
         height = PPT_LINE_HEIGHT_IN
         width = height / GOLDEN_RATIO
-    return (width * yscale, height * xscale)
+    return (width * xscale, height * yscale)
 
 
 def get_entries(cycle_list, num_entries):
@@ -136,7 +136,7 @@ PPT_STYLE = {
     "lines.linewidth": 2.5,
     "lines.markersize": 9,
     "lines.markeredgewidth": 1.5,
-    "legend.handlelength": 7.5,
+    # "legend.handlelength": 7.5,
     "hatch.linewidth": 1.5,
     "grid.linewidth": 1,
     "xtick.major.size": 8,
