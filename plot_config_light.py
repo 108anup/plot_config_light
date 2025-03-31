@@ -38,7 +38,8 @@ PPT_TEXT_WIDTH_IN = 11.5
 def get_fig_size_ppt(xscale=1.0, yscale=1.0, full=False):
     # https://jwalton.info/Embed-Publication-Matplotlib-Latex/
     width = PPT_LINE_WIDTH_IN
-    height = width * GOLDEN_RATIO
+    height = PPT_LINE_HEIGHT_IN
+    # height = width * GOLDEN_RATIO
     if full:
         height = PPT_LINE_HEIGHT_IN
         width = height / GOLDEN_RATIO
@@ -114,7 +115,7 @@ PAPER_STYLE = {
     "legend.title_fontsize": BIG_SIZE,
 }
 
-BIG_SIZE=24  # 24
+BIG_SIZE=22  # 24
 SMALL_SIZE=20  # 20
 PPT_STYLE = {
     "figure.dpi": 600,
