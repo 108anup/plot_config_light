@@ -58,7 +58,7 @@ available_linestyles = ['solid', 'dashdot', 'dashed']
 linestyles = get_entries(available_linestyles, n_colors)
 
 # https://matplotlib.org/stable/api/markers_api.html
-available_markers = ['o', '^', 's', '*', 'X', 'd']
+available_markers = ['o', '^', 's', '*', 'X', 'd', 'triangle_left', 'triangle_right']
 markers = get_entries(available_markers, n_colors)
 
 # https://matplotlib.org/stable/gallery/shapes_and_collections/hatch_style_reference.html
