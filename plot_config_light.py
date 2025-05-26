@@ -1,7 +1,6 @@
 # https://matplotlib.org/stable/users/explain/customizing.html
-
-import seaborn as sns
 from cycler import cycler
+import matplotlib.colors as mcolors
 
 
 def in2pt(inches):
@@ -12,12 +11,13 @@ def pt2in(pt):
     return pt/72.27
 
 
+GOLDEN_RATIO = (5**.5 - 1) / 2
+
 # Constants (two column publication format)
 LATEX_TEXT_WIDTH_PT = 505.89
 LATEX_TEXT_WIDTH_IN = pt2in(LATEX_TEXT_WIDTH_PT)
 LATEX_LINE_WIDTH_PT = 241.02039
 LATEX_LINE_WIDTH_IN = pt2in(LATEX_LINE_WIDTH_PT)
-GOLDEN_RATIO = (5**.5 - 1) / 2
 
 
 def get_fig_size_paper(xscale=1.0, yscale=1.0, full=False):
@@ -25,6 +25,21 @@ def get_fig_size_paper(xscale=1.0, yscale=1.0, full=False):
     width = LATEX_LINE_WIDTH_IN
     if full:
         width = LATEX_TEXT_WIDTH_IN
+    height = (width * GOLDEN_RATIO)
+    return (width * xscale, height * yscale)
+
+
+# acm small paper format
+ACM_SMALL_TEXT_WIDTH_PT = 395.822
+ACM_SMALL_TEXT_WIDTH_IN = pt2in(ACM_SMALL_TEXT_WIDTH_PT)
+ACM_SMALL_LINE_WIDTH_PT = 395.822
+ACM_SMALL_LINE_WIDTH_IN = pt2in(ACM_SMALL_LINE_WIDTH_PT)
+
+
+def get_fig_size_acm_small(xscale=1.0, yscale=1.0, full=False):
+    width = ACM_SMALL_LINE_WIDTH_IN
+    if full:
+        width = ACM_SMALL_TEXT_WIDTH_IN
     height = (width * GOLDEN_RATIO)
     return (width * xscale, height * yscale)
 
@@ -52,7 +67,8 @@ def get_entries(cycle_list, num_entries):
     return (cycle_list * m)[:num_entries]
 
 
-colors = sns.color_palette('tab10')
+colors = list(mcolors.TABLEAU_COLORS.keys())
+# colors = sns.color_palette('tab10')
 n_colors = len(colors)
 available_linestyles = ['solid', 'dashdot', 'dashed']
 linestyles = get_entries(available_linestyles, n_colors)
